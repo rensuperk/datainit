@@ -29,7 +29,6 @@ public class OrgNameSyncMain {
         Set<String> basicSet = new HashSet<String>();
         Set<String> projectSet = new HashSet<String>();
         Map<String,Object> orgMap = new HashMap<String, Object>();
-//        Map<String,Object> basicMap = new HashMap<String, Object>();
         update("basic_project",biddingDao,userDao,basicSet,orgMap);
         update("project",biddingDao,userDao,projectSet,orgMap);
 

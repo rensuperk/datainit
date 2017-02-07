@@ -6,8 +6,9 @@
 
     <groupId>cn.bidlink.nbl</groupId>
     <artifactId>data-init</artifactId>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-        <dependencies>
+    <dependencies>
             <!--<dependency>
                 <groupId>org.nutz</groupId>
                 <artifactId>nutzdoc</artifactId>
@@ -23,11 +24,11 @@
                 <artifactId>druid</artifactId>
                 <version>1.0.27</version>
             </dependency>
-            <dependency>
+            <!--<dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>6.0.5</version>
-            </dependency>
+            </dependency>-->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
@@ -44,6 +45,26 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>1.7.22</version>
             </dependency>
+        <dependency>
+            <groupId>cn.bidlink.nbl</groupId>
+            <version>1.0.0-SNAPSHOT</version>
+            <artifactId>approval-action</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>4.1.3.RELEASE</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>springframework</groupId>
+            <artifactId>spring-mock</artifactId>
+            <version>1.2.6</version>
+        </dependency>-->
         </dependencies>
 
     <profiles>
@@ -60,6 +81,7 @@
         <profile>
             <!-- 正式环境 -->
             <id>pro</id>
+
             <properties>
                 <properties.deploy.profile>pro</properties.deploy.profile>
             </properties>

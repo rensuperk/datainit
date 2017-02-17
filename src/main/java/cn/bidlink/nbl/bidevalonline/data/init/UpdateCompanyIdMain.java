@@ -1,4 +1,4 @@
-package cn.bidlink.nbl.bidding.data.init;
+package cn.bidlink.nbl.bidevalonline.data.init;
 
 import org.apache.log4j.Logger;
 import org.nutz.dao.Chain;

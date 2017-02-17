@@ -1,4 +1,4 @@
-package cn.bidlink.nbl.bidding.data.init;
+package cn.bidlink.nbl.bidevalonline.data.init;
 
 import org.apache.commons.lang3.StringUtils;
 import org.nutz.dao.Chain;

@@ -1,4 +1,4 @@
-package cn.bidlink.nbl.project.data.init;
+package cn.bidlink.nbl.bidevalonline.data.init;
 
 import org.nutz.dao.Chain;
 import org.nutz.dao.Cnd;

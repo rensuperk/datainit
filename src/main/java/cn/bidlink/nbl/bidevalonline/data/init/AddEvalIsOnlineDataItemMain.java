@@ -83,14 +83,11 @@ public class AddEvalIsOnlineDataItemMain {
                     .add("DICTIONARY_KEY", "015")
                     .add("SORT_NO", sortNo)
                     .add("SYSTEM_STATUS", 1)
-//                    .add("IS_TENANTABLE", 1)
-//                    .add("IS_TENANT_EDITABLE", 1)
                     .add("CREATE_TIME", new Date())
                     .add("SYS_DATA_ITEM_ID", sysDataItemId)
                     .add("TENANT_ID", tenantId)
                     .add("CREATE_USER_ID", createUserId)
                     .add("ORG_CODE", orgCode)
-                    .add("SYSTEM_STATUS", 1)
                     .add("IS_EDITABLE", 1)
                     ;
             System.out.println("formId="+formid+"下,没有这个数据项,添加中...");

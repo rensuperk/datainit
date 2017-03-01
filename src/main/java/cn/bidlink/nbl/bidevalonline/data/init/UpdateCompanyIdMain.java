@@ -14,6 +14,7 @@ import java.util.*;
 
 /**
  * Created by renkai on 2017/1/19.
+ * 更新那些不正确公司id
  */
 public class UpdateCompanyIdMain {
     public static Logger logger = Logger.getLogger(UpdateCompanyIdMain.class);

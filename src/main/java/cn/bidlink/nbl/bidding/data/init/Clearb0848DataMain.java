@@ -1,13 +1,21 @@
 package cn.bidlink.nbl.bidding.data.init;
 
+import cn.bidlink.nbl.data.utils.DataSourceUtils;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.lang.time.DateUtils;
 import org.nutz.dao.Cnd;
+import org.nutz.dao.Sqls;
 import org.nutz.dao.entity.Record;
 import org.nutz.dao.impl.NutDao;
+import org.nutz.dao.impl.sql.NutSql;
+import org.nutz.dao.sql.Sql;
+import org.nutz.dao.sql.SqlCallback;
 import org.nutz.ioc.Ioc;
 import org.nutz.ioc.impl.NutIoc;
 import org.nutz.ioc.loader.json.JsonLoader;
+import org.nutz.trans.Atom;
+import org.nutz.trans.Trans;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
@@ -20,19 +28,31 @@ public class Clearb0848DataMain {
 
     public static void main(String[] args) {
         List<String> tablse = getNblOaTablse();
-        Ioc ioc = new NutIoc(new JsonLoader("oaDao.js"));
-        DataSource ds = ioc.get(DataSource.class);
-        NutDao oaDao = new NutDao(ds);
+        final NutDao oaDao = DataSourceUtils.oaDao();
+
+        Trans.exec(new Atom() {
+            public void run() {
+
+                clear(oaDao,"50034ae6e76111e59ef090b11c392655");
+
+            }
+        });
+    }
+
+    public static void clear(NutDao oaDao,String tenantid){
+        List<String> tablse = getNblOaTablse();
         for (String table : tablse) {
             boolean exists = oaDao.exists(table);
             if(exists){
                 try {
-                    List<Record> query = oaDao.query(table, Cnd.where("TENANT_ID", "=", "50034ae6e76111e59ef090b11c392655"));
+                    List<Record> query = oaDao.query(table, Cnd.where("TENANT_ID", "=", tenantid));
 
                     if(query != null && !query.isEmpty()){
-                        System.out.println(table+"有"+query.size()+"条数据可以删除");
-//                        int clear = oaDao.clear(table, Cnd.where("TENANT_ID", "=", "5185b412e76111e59ef090b11c392655"));
-//                        System.out.println(table+"表有"+query.size()+"条数据可以删除,删除了"+clear+"条数据");
+//                        System.out.println(table+"有"+query.size()+"条数据可以删除");
+                        int clear = oaDao.clear(table, Cnd.where("TENANT_ID", "=", tenantid));
+                        System.out.println(table+"表有"+query.size()+"条数据可以删除,删除了"+clear+"条数据");
+                    }else{
+                        System.out.println(table+"没有可以删除的数据");
                     }
 //                    for (Record record : query) {
 //                        System.out.println(record);
@@ -48,8 +68,6 @@ public class Clearb0848DataMain {
             }
         }
     }
-
-
     public static List<String> getNblOaTablse(){
         String tableJson = "[\n" +
 //                "    {\n" +

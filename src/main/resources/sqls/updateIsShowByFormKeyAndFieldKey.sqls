@@ -1,0 +1,11 @@
+/*select*/
+select * from nbl_oa.app_set_data_item d,nbl_oa.app_set_form f WHERE d.FORM_ID=f.ID AND d.IS_SHOW=1 AND d.FIELD_KEY=@fieldKey AND f.FORM_KEY=@formKey
+
+/*update*/
+UPDATE nbl_oa.app_set_data_item d,nbl_oa.app_set_form f SET d.IS_SHOW=0 WHERE d.FORM_ID=f.ID AND d.IS_SHOW=1 AND d.FIELD_KEY=@fieldKey AND f.FORM_KEY=@formKey
+/*update_sys*/
+UPDATE nbl_oa.sys_app_set_data_item d,nbl_oa.sys_app_set_form f SET d.IS_SHOW=0 WHERE d.FORM_ID=f.ID AND d.IS_SHOW=1 AND d.FIELD_KEY=@fieldKey AND f.FORM_KEY=@formKey
+/*select_approval_instance*/
+SELECT i.ID,i.BUSINESS_DATA FROM template_approval_instance i
+/*update_approval_instance*/
+update template_approval_instance set BUSINESS_DATA=@BUSINESS_DATA where id=@ID

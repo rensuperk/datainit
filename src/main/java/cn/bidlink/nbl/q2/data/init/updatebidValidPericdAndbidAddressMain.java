@@ -28,19 +28,19 @@ public class updatebidValidPericdAndbidAddressMain {
         Ioc ioc = new NutIoc(new JsonLoader("oaDao.js"));
         DataSource ds = ioc.get(DataSource.class);
         final NutDao oaDao = new NutDao(ds);
-//        Trans.exec(new Atom() {
-//            public void run() {
-//               update(oaDao,false);
-//
-//            }
-//
-//            });
         Trans.exec(new Atom() {
             public void run() {
-                update(oaDao,true);
+               update(oaDao,false);
 
             }
-        });
+
+            });
+//        Trans.exec(new Atom() {
+//            public void run() {
+//                update(oaDao,true);
+//
+//            }
+//        });
     }
 
     public static void update(final NutDao oaDao,boolean isSys){

@@ -36,4 +36,10 @@ public class DataSourceUtils {
         NutDao templateDao = new NutDao(ds);
         return templateDao;
     }
+    public static NutDao yuecaiDao(){
+        Ioc ioc = new NutIoc(new JsonLoader("yuecaiDao.js"));
+        DataSource ds = ioc.get(DataSource.class);
+        NutDao templateDao = new NutDao(ds);
+        return templateDao;
+    }
 }

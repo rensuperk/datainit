@@ -5,9 +5,9 @@
         "depose": "close"
     },
     "fields": {
-        "url": "${yuecaiurl}",
-            "username": "${yuecaiusername}",
-            "password": "${yuecaipassword}",
+        "url": "${synergyurl}",
+            "username": "${synergyusername}",
+            "password": "${synergypassword}",
             "maxWait": 15000,
             "defaultAutoCommit": false
     }
